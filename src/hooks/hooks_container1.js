@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
+import * as Reducer from '../store/hooks_state/hooks_reducer'
+import * as ACTIONS from '../store/actions/actions'
 
 const HooksContainer1 = () => {
 
@@ -6,6 +8,8 @@ const HooksContainer1 = () => {
     //const setValue = useState(0)[1]
     const [stateValue, setValue] = useState(0)
     const [useEffectValue, setUseEffectValue] = useState(null)
+
+    const [state, dispatch] = useReducer(Reducer.HooksReducer, Reducer.intialState)
 
     useEffect(() => {
         setTimeout(() => 
@@ -26,9 +30,21 @@ const HooksContainer1 = () => {
         setUseEffectValue('some string')
     }
 
+    const handleDispatchTrue = () => {
+        //dispatch(ACTIONS.SUCCESS)
+        //dispatch(type: "SUCCESS")
+        dispatch(ACTIONS.success())
+    }
+
+    const handleDispatchFalse = () => {
+        dispatch(ACTIONS.failure())
+    }
+
     return(
         <div>
             React hooks
+            <button onClick={() => handleDispatchTrue()}>dispatch true</button>
+            <button onClick={() => handleDispatchFalse()}>dispatch false</button>
             <br />
             <button onClick={() => incrementValue()}>increment local state</button>
             <button onClick={() => decrementValue()}>decrement local state</button>
@@ -41,6 +57,12 @@ const HooksContainer1 = () => {
                    }
                 <br />
                 <p>local state: {stateValue}</p>
+                <br />
+                {state.stateprop1
+                    ? <p> stateprop1 is true</p>
+                    : <p>stateprop1 is false</p>
+
+                }
             </div>
         </div>
 
