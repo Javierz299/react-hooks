@@ -7,7 +7,20 @@ export const SUCCESS = {
 export const FAILURE = {
   type: ACTION_TYPES.FAILURE
 }
+ 
+export const user_input_change = (text) => {
+ return {
+  type: ACTION_TYPES.USER_INPUT_CHANGE,
+  payload: text
+ }
+}
 
+export const user_input_submit = (text) => {
+  return {
+    type: ACTION_TYPES.USER_INPUT_SUBMIT,
+    payload: text,
+  }
+}
 
 export const success = () => {
   return {
