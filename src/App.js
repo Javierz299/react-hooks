@@ -38,6 +38,7 @@ const handleuseContextChange = (e) => {
 
 const handleuseContextSubmit = (e) => {
   e.preventDefault()
+  //persist helps with no errors since data his coming up. should use.
   e.persist()
  dispatchUser(ACTIONS.user_input_submit(e.target.useContext.value))
 }
