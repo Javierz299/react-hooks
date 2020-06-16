@@ -62,6 +62,10 @@ const HooksContainer1 = () => {
             <button onClick={() => context.dispatchContextFalse()}>dispatch context false</button>
             <br />
             <div>
+                {context.useContextSubmit
+                ? <p>{context.useContextSubmit}</p>
+                : <p>no user text</p>
+                }
                {useEffectValue
                     ? <p>{useEffectValue}</p>
                     : <p>no value</p>

@@ -2,7 +2,12 @@ import React, { useState, useReducer, useContext } from 'react'
 import * as ACTIONS from '../store/actions/actions'
 import * as UserReducer from '../store/hooks_state/user_input_hooks_reducer'
 
+import Context from '../utils/context'
+
 const HooksForm = () => {
+    const context = useContext(Context)
+
+
     /*current state, change state*/
  const [valueChange, setValueChange] = useState('')
  const [valueSubmit, setValueSubmit] = useState('')
@@ -47,6 +52,16 @@ const handleuseStateChange = (e) => {
                 <h2>React useReducer: </h2>
                 <p>change: {userState.user_text_change} </p>
                 <p>submit: {userState.user_text_submit} </p>
+            </div>
+            <form onSubmit={context.useContextHandleSubmit}>
+                <label>React useContext: </label>
+                <input id='useContext' type='text' onChange={context.useContextHandleChange}/>
+                <button type='submit' >submit</button>
+            </form>
+            <div>
+                <h2>React useContext: </h2>
+                <p>change: {context.useContextChange} </p>
+                <p>submit: {context.useContextSubmit} </p>
             </div>
 
         </div>
