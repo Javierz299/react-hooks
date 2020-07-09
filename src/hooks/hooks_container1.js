@@ -19,16 +19,16 @@ const HooksContainer1 = () => {
         setTimeout(() => 
             setUseEffectValue("useEffect Worked")
         , 2000);
-    },[stateValue])
+    },[useEffectValue])
 
 
-    const incrementValue = () => {
-        setValue(stateValue + 1)
-    }
+   const incrementValue = () => {
+       setValue(useEffectValue + 1)
+   }
 
-    const decrementValue = () => {
-        setValue(stateValue - 1)
-    }
+   const decrementValue = () => {
+       setValue(stateValue - 1)
+   }
 
     const changeuseEffectValue = () => {
         setUseEffectValue('some string')
